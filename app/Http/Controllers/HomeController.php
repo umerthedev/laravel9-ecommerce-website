@@ -8,6 +8,14 @@ use App\Models\User;
 
 class HomeController extends Controller
 {
+        // index
+    public function index()
+    {
+        return view('home.userpage');
+    }
+
+
+    // user role 
     public function redirect()
     {
         $usertype = Auth::user()->usertype;
@@ -20,4 +28,6 @@ class HomeController extends Controller
             return view('dashboard');
         }
     }
+
+    
 }
