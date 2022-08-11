@@ -57,34 +57,34 @@
                       @csrf
                       <div class="col-12">
                         <label class="form-label">Title</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" required>
+                        <input id="inputcat" type="text" class="form-control text-dark" name="title" required>
                       </div>
                       <div class="col-12">
                         <label class="form-label">Description</label>
-                        <textarea id="inputcat" class="form-control " rows="2" cols="2" ></textarea>
+                        <textarea id="inputcat" class="form-control " rows="2" cols="2" name="description"  ></textarea>
                       </div>                                          
                       <div class="col-6">
                         <label class="form-label">Price</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" required>
+                        <input id="inputcat" type="text" class="form-control text-dark" name="price" required>
                       </div>
                       <div class="col-6">
                         <label class="form-label">Discount Price</label>
-                        <input id="inputcat" type="text" class="form-control text-dark">
+                        <input id="inputcat" type="text" class="form-control text-dark" name="disprice">
                       </div>
                       <div class="col-6">
                         <label class="form-label">Quantity</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" required>
+                        <input id="inputcat" type="text" class="form-control text-dark" required name="quantity">
                       </div>
                       <div class="col-12">
                         <label class="form-label">Product image</label>
-                        <input  type="file" class="form-control" required>
+                        <input  type="file" class="form-control" required name="image">
                         {{-- <label class="form-label">Select Category</label> --}}
                       </div>
                       <div class="col-6">
-                        <select class="form-select" required >
+                        <select class="form-select" required  name="catagory">
                           <option selected>Select Category</option>
                            @foreach ($catagory as $catagory)
-                          <option value="3">{{$catagory->catagory_name}}</option>
+                          <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>
                           @endforeach
                         </select>
                       </div>
