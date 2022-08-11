@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -39,6 +40,11 @@ Route::get('/view_catagory', [AdminController::class, 'view_catagory' ]);
 Route::post('/add_category', [AdminController::class, 'add_category' ]);
 // delete Catagory
 Route::get('/delete_category/{id}', [AdminController::class, 'delete_category' ]);
+
+
+
+// Product Route
+Route::get('view_product', [ProductController::class, 'view_product']);
 
 
 
