@@ -47,7 +47,7 @@
                 <form action="{{url('/add_category')}}" method="POST">
                     @csrf
                     <div >
-                        <input type="text" id="inputcat" class="form-control text-dark" placeholder="Add categorys" name="category" > 
+                        <input type="text" id="inputcat" class="form-control text-dark" style="background-color: aliceblue" placeholder="Add categorys" name="category" > 
                     </div>
                     <div id="sub">
                         <button type="submit"  class="btn waves-effect waves-light btn-info ">Add</button>
@@ -69,7 +69,7 @@
                     <tbody>
                         @foreach ($data as $data) 
                         <tr>                                 
-                        <th scope="row">1</th>
+                        <th scope="row">{{$data->id}}</th>
                         <td>{{$data->catagory_name}}</td>
                         <td style="text-align: right">
                             <a href="{{url('delete_category',$data->id)}}" class="btn btn-primary">Edit</a>

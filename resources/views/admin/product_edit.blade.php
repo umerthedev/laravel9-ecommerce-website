@@ -51,48 +51,49 @@
                <div class="card" >
                   <div class="card-body">
                     <div class="border p-3 rounded">
-                    <h6 id="h1" class="mb-0 text-uppercase">Add Product</h6>
+                    <h6 id="h1" class="mb-0 text-uppercase">Edit Product</h6>
                      <hr>
-                    <form class="row g-3" action="{{url('/add_product')}}" method="POST" enctype="multipart/form-data">
+                    <form class="row g-3" action="{{url('/update_product',$product->id)}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="col-12">
                         <label class="form-label">Title</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" name="title" required style="background-color: aliceblue">
+                        <input id="inputcat" type="text" class="form-control text-dark" name="title" required style="background-color: aliceblue" value="{{$product->title}}">
                       </div>
                       <div class="col-12">
                         <label class="form-label">Description</label>
-                        <textarea id="inputcat" class="form-control text-dark" style="background-color: aliceblue" name="description"  ></textarea>
+                        <textarea id="inputcat" class="form-control text-dark" style="background-color: aliceblue" name="description" value="{{$product->description}}"></textarea>
                       </div>                                          
                       <div class="col-6">
                         <label class="form-label">Price</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" name="price" required style="background-color: aliceblue">
+                        <input id="inputcat" type="text" class="form-control text-dark" name="price" required style="background-color: aliceblue" value="{{$product->price}}">
                       </div>
                       <div class="col-6">
                         <label class="form-label">Discount Price</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" name="disprice" style="background-color: aliceblue">
+                        <input id="inputcat" type="text" class="form-control text-dark" name="disprice" style="background-color: aliceblue" value="{{$product->discount_price}}">
                       </div>
                       <div class="col-6">
                         <label class="form-label">Quantity</label>
-                        <input id="inputcat" type="text" class="form-control text-dark" required name="quantity" style="background-color: aliceblue">
+                        <input id="inputcat" type="text" class="form-control text-dark" required name="quantity" style="background-color: aliceblue" value="{{$product->quantity}}">
+                      </div>
+                      <div class="col-6">
+                        <label class="form-label">Current Product image</label>
+                        <img height="100px" width="100px" src="product/{{$product->image}}" alt="">
                       </div>
                       <div class="col-12">
-                        <label class="form-label">Product image</label>
-                        <input  type="file" class="form-control" required name="image">
+                        <label class="form-label">Change Product image</label>
+                        <input  type="file" class="form-control" name="image">
                         {{-- <label class="form-label">Select Category</label> --}}
                       </div>
                       <div class="col-6">
                         <select class="form-select" required  name="catagory" >
-                          <option >Select Category</option>
-                           @foreach ($catagory as $catagory)
+                          <option value="{{$product->catagory}}" selected>{{$product->catagory}}</option>
+                          @foreach ($catagory as $catagory)
                           <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>
                           @endforeach
                         </select>
-                      </div>
-                      
-                      
-                      
-                      <div class="col-12" id="sub">
-                        <button type="submit"  class="btn waves-effect waves-light btn-info ">Submit</button>
+                      </div>                                   
+                         <div class="col-12" id="sub">
+                        <button type="submit"  class="btn waves-effect waves-light btn-info ">Update Product</button>
                      </div>
                     </div>
                  </form>

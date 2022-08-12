@@ -69,28 +69,27 @@
                             @foreach ($product as $product)                         
                  
                         <tr>                                 
-                        <th scope="row">1</th>
+                        <th scope="row">{{$product->id}}</th>
                         <td>{{$product->title}}</td>
                         <td>{{$product->description}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->discount_price}}</td>
                         <td>{{$product->quantity}}</td>
                         <td>
-                            <img src="/product/{{$product->image}}" alt="">
+                            <img src="product/{{$product->image}}" alt="">
                         </td>
 
                         <td>{{$product->catagory}}</td>
                         <td style="text-align: right">
-                            <a href="{{url('delete_product')}}" class="btn btn-primary">Edit</a>
-                            <a onclick="return confirm('Are you sure want to delete this category')" href="{{url('delete_product')}}" class="btn btn-danger">Delete</a>
+                            <a href="{{url('product_edit',$product->id)}}" class="btn btn-primary">Edit</a>
+                            <a onclick="return confirm('Are you sure want to delete this category')" href="{{url('delete_product',$product->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-    
-       </div>
-    </div>
+                </table>    
+          </div>
+     </div>
 
 
 
