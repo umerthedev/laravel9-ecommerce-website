@@ -45,8 +45,8 @@
 
                 <form action="{{url('/add_category')}}" method="POST">
                     @csrf
-                    <div id="inputcat">
-                        <input type="text" id="inputcat" class="form-control" placeholder="Add categorys" name="category"> 
+                    <div >
+                        <input type="text" id="inputcat" class="form-control text-dark" placeholder="Add categorys" name="category"> 
                     </div>
                     <div id="sub">
                         <button type="submit"  class="btn waves-effect waves-light btn-info ">Add</button>

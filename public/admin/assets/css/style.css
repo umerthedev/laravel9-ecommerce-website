@@ -21111,7 +21111,7 @@ div.tagsinput {
   display: flex;
   position: relative; }
 
-.main-panel {
+/* .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
   width: 100%;
   min-height: calc(100vh - 70px);
@@ -21123,7 +21123,7 @@ div.tagsinput {
   @media (max-width: 991px) {
     .main-panel {
       margin-left: 0;
-      width: 100%; } }
+      width: 100%; } } */
 
 .content-wrapper {
   background: #000000;
