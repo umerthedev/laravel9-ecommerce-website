@@ -6,6 +6,7 @@
     <style>
         #inputcat{
             color: rgb(255, 255, 255);
+            margin-top:2px;
             
         }
         #sub{
@@ -46,7 +47,7 @@
                 <form action="{{url('/add_category')}}" method="POST">
                     @csrf
                     <div >
-                        <input type="text" id="inputcat" class="form-control text-dark" placeholder="Add categorys" name="category"> 
+                        <input type="text" id="inputcat" class="form-control text-dark" placeholder="Add categorys" name="category" > 
                     </div>
                     <div id="sub">
                         <button type="submit"  class="btn waves-effect waves-light btn-info ">Add</button>
