@@ -72,7 +72,7 @@
                         <th scope="row">{{$data->id}}</th>
                         <td>{{$data->catagory_name}}</td>
                         <td style="text-align: right">
-                            <a href="{{url('delete_category',$data->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{url('edit_category',$data->id)}}" class="btn btn-primary">Edit</a>
                             <a onclick="return confirm('Are you sure want to delete this category')" href="{{url('delete_category',$data->id)}}" class="btn btn-danger">Delete</a>
                         </td>
                         </tr>

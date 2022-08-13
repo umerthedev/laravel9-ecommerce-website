@@ -12,8 +12,8 @@ class AdminController extends Controller
    public function view_catagory()
    {
 
-    $data = catagory::all();
-    return view('admin.catagory', compact('data'));
+      $data = catagory::all();
+      return view('admin.catagory', compact('data'));
    }
 
 
@@ -21,20 +21,36 @@ class AdminController extends Controller
 
    public function add_category(Request $request)
    {
-    $data = new catagory;
-    $data->catagory_name = $request->category;
-    $data->save();
+      $data = new catagory;
+      $data->catagory_name = $request->category;
+      $data->save();
 
-    return redirect()->back()->with('message', 'Category Added Successfully');
+      return redirect()->back()->with('message', 'Category Added Successfully');
    }
 
 
    public function delete_category($id)
    {
 
-    $data = catagory::find($id);
-    $data->delete();
-    
-    return redirect()->back()->with('message', 'Category Deleted Successfully');
+      $data = catagory::find($id);
+      $data->delete();
+
+      return redirect()->back()->with('message', 'Category Deleted Successfully');
+   }
+
+   public function edit_category($id)
+   {
+      $cat = catagory::find($id);
+      return view('admin.update_category', compact('cat'));
+   }
+
+   public function update_category(Request $request, $id)
+   {
+      $data = catagory::find($id);
+      $data->catagory_name = $request->category;
+      $data->save();
+
+      // return view('admin.catagory')->with('message', 'Category updated Successfully');
+      return redirect()->back()->with('message', 'Category updated Successfully');
    }
 }

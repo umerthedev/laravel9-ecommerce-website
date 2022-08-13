@@ -79,6 +79,7 @@ class ProductController extends Controller
         $product->save();
 
 
-        return view('admin.show_product')->with('message', 'Product updated Successfully');;
+        // return view('admin.show_product')->with('message', 'Product updated Successfully');
+        return redirect()->back()->with('message', 'Product updated Successfully');
     }
 }

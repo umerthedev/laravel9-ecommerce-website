@@ -40,6 +40,9 @@ Route::get('/view_catagory', [AdminController::class, 'view_catagory']);
 Route::post('/add_category', [AdminController::class, 'add_category']);
 // delete Catagory
 Route::get('/delete_category/{id}', [AdminController::class, 'delete_category']);
+Route::get('/edit_category/{id}', [AdminController::class, 'edit_category']);
+Route::post('/update_category/{id}', [AdminController::class, 'update_category']);
+
 
 
 
