@@ -82,4 +82,10 @@ class ProductController extends Controller
         // return view('admin.show_product')->with('message', 'Product updated Successfully');
         return redirect()->back()->with('message', 'Product updated Successfully');
     }
+
+    public function product_details($id)
+    {
+        $product = product::find($id);
+        return view('home.product_details', compact('product'));
+    }
 }

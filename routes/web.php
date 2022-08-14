@@ -49,7 +49,8 @@ Route::post('/update_category/{id}', [AdminController::class, 'update_category']
 // Product Route
 Route::get('view_product', [ProductController::class, 'view_product']);
 Route::post('add_product', [ProductController::class, 'add_product']);
-Route::get('show_product', [ProductController::class, 'show_product']);
-Route::get('delete_product/{id}', [ProductController::class, 'delete_product']);
-Route::get('product_edit/{id}', [ProductController::class, 'product_edit']);
-Route::post('update_product/{id}', [ProductController::class, 'UpdateProduct']);
+Route::get('/show_product', [ProductController::class, 'show_product']);
+Route::get('/delete_product/{id}', [ProductController::class, 'delete_product']);
+Route::get('/product_edit/{id}', [ProductController::class, 'product_edit']);
+Route::post('/update_product/{id}', [ProductController::class, 'UpdateProduct']);
+Route::get('/product_details/{id}', [ProductController::class, 'product_details']);
