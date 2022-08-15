@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AddCartController;
 
 
 /*
@@ -54,3 +55,6 @@ Route::get('/delete_product/{id}', [ProductController::class, 'delete_product'])
 Route::get('/product_edit/{id}', [ProductController::class, 'product_edit']);
 Route::post('/update_product/{id}', [ProductController::class, 'UpdateProduct']);
 Route::get('/product_details/{id}', [ProductController::class, 'product_details']);
+
+// Add To Cart
+Route::post('/add_cart/{id}', [AddCartController::class, 'add_cart']);

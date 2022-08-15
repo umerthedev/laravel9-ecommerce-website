@@ -4,6 +4,7 @@
      @include('home.css');
 
        @include('partial.pro_details ')
+       
    </head>
    <body>
 
@@ -68,20 +69,29 @@
                                            Product Quantity : {{$product->quantity}}
                                         </p>
                                     </div>
+
+                                    <hr class="singleline">
+                                    <br>
+
                                 
                                
                                 <div class="row">
-                                    <div class="col-xs-6" style="margin-left: 13px; te">
-                                        <div class="product_quantity"> <span>QTY: </span> <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-                                            <div class="quantity_buttons">
-                                                <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
-                                                <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6"> <button type="button" class="btn btn-primary shop-button" style="color: #ac8400">Add to Cart</button> <button type="button" class="btn btn-success shop-button" style="color: #ac8400">Buy Now</button>
-                                        <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                    </div>
+                                    <div class="col-xs-6" style="margin-left: 13px;">
+                                        <form action="{{url('add_cart',$product->id)}}" method="POST">
+                                            @csrf
+                                            <div class="row">
+                                               <div class="col-md-12">
+                                                  <input type="number" name="quantity" value="1" min="1" >
+                                               </div>
+                                               <div class="col-md-12">
+                                                  <input  type="submit" value="Add To cart">
+                                               </div>
+                                               <div class="col-md-12" style="margin-top: 20px;">
+                                                <input  type="submit" value="  Buy Now    ">
+                                               </div>
+                                           </div>
+                                          </form>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>

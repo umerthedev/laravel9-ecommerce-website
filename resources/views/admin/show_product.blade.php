@@ -62,7 +62,7 @@
                         <th scope="col">Quantity</th>
                         <th scope="col">Product Image</th>
                         <th scope="col">Product Category</th>
-                        <th style="text-align: right">Acton</th>
+                        <th scope="col">Acton</th>
                       </tr>
                     </thead>
                     <tbody>
