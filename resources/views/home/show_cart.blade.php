@@ -73,7 +73,7 @@ label.radio input:checked + span {
 }
 
 .credit-inputs::placeholder {
-  color: #fff;
+  color: rgb(255, 81, 96);
   font-size: 13px;
 }
 
@@ -83,7 +83,7 @@ label.radio input:checked + span {
 }
 
 .form-control.credit-inputs:focus {
-  background: rgb(255, 78, 78);
+  background: rgb(255, 255, 255);
   border: rgb(25, 25, 32);
 }
 
@@ -131,30 +131,49 @@ label.radio input:checked + span {
                                 <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <table class="table">
+                          <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col"> Product Title</th>
+                            <th scope="col">Product Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <?php $totalprice= 0;?>
+                          @foreach ($cart as $cart)
+                              
+                           <tr>
+                            <th scope="row">1</th>
+                            <td><div class="ml-2"><span class="font-weight-bold d-block">{{$cart->product_title}}</span></div></td>
+                            <td>{{$cart->quantity}}</td>
+                            <td>{{$cart->price}} tk</td>
+                            <td><div class="d-flex flex-row"><img class="rounded" src="{{url('product/' . $cart->image)}}" width="40"></td>
+                            <td><a class="btn btn-danger text-dark" onclick="return confirm('Are you want to remove this product from cart !!!')" href="{{url('/remove_cart',$cart->id)}}">Remove</a></td>
+                          </tr>
+
+                          <?php $totalprice=$totalprice + $cart->price?>
+                          @endforeach
+
+                         
+
+                          
+                        </tbody>
+                        </table>
+
+                        <?php $deliverycharge=50;?>
+
+                        {{-- <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                             <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/QRwjbm5.jpg" width="40">
                                 <div class="ml-2"><span class="font-weight-bold d-block">Iphone 11 pro</span><span class="spec">256GB, Navy Blue</span></div>
                             </div>
                             <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                            <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/GQnIUfs.jpg" width="40">
-                                <div class="ml-2"><span class="font-weight-bold d-block">One pro 7T</span><span class="spec">256GB, Navy Blue</span></div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                            <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/o2fKskJ.jpg" width="40">
-                                <div class="ml-2"><span class="font-weight-bold d-block">Google pixel 4 XL</span><span class="spec">256GB, Axe black</span></div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$800</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                            <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/Tja5H1c.jpg" width="40">
-                                <div class="ml-2"><span class="font-weight-bold d-block">Samsung galaxy Note 10&nbsp;</span><span class="spec">256GB, Navy Blue</span></div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$999</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                        </div>
+                        </div> --}}
+                        
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -174,9 +193,9 @@ label.radio input:checked + span {
                             <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
                         </div>
                         <hr class="line">
-                        <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$3000.00</span></div>
-                        <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20.00</span></div>
-                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
+                        <div class="d-flex justify-content-between information"><span>Subtotal</span><span> {{$totalprice}} tk</span></div>
+                        <div class="d-flex justify-content-between information"><span>Delivery Charge</span><span>{{$deliverycharge}} tk</span></div>
+                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
                 </div>
             </div>
         </div>
