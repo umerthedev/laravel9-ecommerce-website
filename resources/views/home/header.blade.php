@@ -21,10 +21,10 @@
                            <a class="nav-link" href="product.html">Products</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="blog_list.html">Blog</a>
+                           <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="contact.html">Contact</a>
+                           <a class="nav-link" href="{{url('show_cart')}}">cart</a>
                         </li>
                         <form class="form-inline">
                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -42,7 +42,7 @@
                         </li>
 
                         @else
-                        <li class="nav-item">
+                        <li class="nav-item ">
                            <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
                         <li class="nav-item">

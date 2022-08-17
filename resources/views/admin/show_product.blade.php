@@ -76,7 +76,7 @@
                         <td>{{$product->discount_price}}</td>
                         <td>{{$product->quantity}}</td>
                         <td>
-                            <img src="product/{{$product->image}}" alt="">
+                            <img src="{{url('product/'. $product->image)}}" alt="">
                         </td>
 
                         <td>{{$product->catagory}}</td>

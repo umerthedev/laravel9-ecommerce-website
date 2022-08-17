@@ -41,4 +41,9 @@ class AddCartController extends Controller
             return redirect('login');
         }
     }
+
+    public function show_cart()
+    {
+        return view('home.show_cart');
+    }
 }

@@ -19,13 +19,13 @@
                     <div class="row">
                         <div class="col-lg-2 order-lg-1 order-2">
                             <ul class="image_list">
-                                <li data-image="https://i.imgur.com/21EYMGD.jpg"><img src="product/{{$product->image}}" alt=""></li>
-                                <li data-image="https://i.imgur.com/DPWSNWd.jpg"><img src="product/{{$product->image}}" alt=""></li>
-                                <li data-image="https://i.imgur.com/HkEiXfn.jpg"><img src="product/{{$product->image}}" alt=""></li>
+                                <li data-image="https://i.imgur.com/21EYMGD.jpg"><img src="{{url('product/'. $product->image)}}" alt=""></li>
+                                <li data-image="https://i.imgur.com/DPWSNWd.jpg"><img src="{{url('product/'. $product->image)}}" alt=""></li>
+                                <li data-image="https://i.imgur.com/HkEiXfn.jpg"><img src="{{url('product/'. $product->image)}}" alt=""></li>
                             </ul>
                         </div>
                         <div class="col-lg-4 order-lg-2 order-1">
-                            <div class="image_selected"><img src="product/{{$product->image}}" alt=""></div>
+                            <div class="image_selected"><img src="{{url('product/'. $product->image)}}" alt=""></div>
                         </div>
                         <div class="col-lg-6 order-3">
                             <div class="product_description">

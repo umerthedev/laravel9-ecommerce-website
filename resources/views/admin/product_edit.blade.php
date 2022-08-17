@@ -77,7 +77,7 @@
                       </div>
                       <div class="col-6">
                         <label class="form-label">Current Product image</label>
-                        <img height="100px" width="100px" src="product/{{$product->image}}" alt="">
+                        <img height="100px" width="100px" src="{{url('product/'. $product->image)}}" alt="">
                       </div>
                       <div class="col-12">
                         <label class="form-label">Change Product image</label>
