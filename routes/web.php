@@ -60,3 +60,6 @@ Route::get('/product_details/{id}', [ProductController::class, 'product_details'
 Route::post('/add_cart/{id}', [AddCartController::class, 'add_cart']);
 Route::get('/show_cart', [AddCartController::class, 'show_cart']);
 Route::get('/remove_cart/{id}', [AddCartController::class, 'remove_cart']);
+
+// Order
+Route::get('/cash_order', [AddCartController::class, 'cash_order']);

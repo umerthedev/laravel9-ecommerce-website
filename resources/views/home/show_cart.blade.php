@@ -121,6 +121,17 @@ label.radio input:checked + span {
 
         <div class="container mt-5 p-3 rounded cart">
             <div class="row no-gutters">
+
+              @if(session()->has('message'))
+
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                    {{session()->get('message')}}
+
+                </div>
+
+
+                @endif
                 <div class="col-md-8">
                     <div class="product-details mr-2">
                         <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span></div>
@@ -186,16 +197,21 @@ label.radio input:checked + span {
     
     
                         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="images/nagad.png"/></span> </label>
-                        <div><label class="credit-card-label text-dark">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
+
+                        {{-- <label class="radio"> <input  type="radio" name="card" value="payment"> <span><img width="48" src="images/cod.jpg"/></span> </label> --}}
+                        
+                        {{-- <div><label class="credit-card-label text-dark">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
                         <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
                         <div class="row">
                             <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
                             <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
-                        </div>
+                        </div> --}}
                         <hr class="line">
                         <div class="d-flex justify-content-between information"><span>Subtotal</span><span> {{$totalprice}} tk</span></div>
                         <div class="d-flex justify-content-between information"><span>Delivery Charge</span><span>{{$deliverycharge}} tk</span></div>
-                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
+                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span>Online Payment<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+                        <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span><a href="{{url('cash_order')}}"> Cash On Delivery</a><i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
+                        
                 </div>
             </div>
         </div>
