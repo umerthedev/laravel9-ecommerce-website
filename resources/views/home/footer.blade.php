@@ -7,9 +7,9 @@
                    <a href="{{url('/')}}"><img width="210"  src="{{ URL::asset("images/logo.png")}}" alt="#" /></a>
                  </div>
                  <div class="information_f">
-                   <p><strong>ADDRESS:</strong> 28 White tower, Street Name New York City, USA</p>
-                   <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
-                   <p><strong>EMAIL:</strong> yourmain@gmail.com</p>
+                   <p><strong>ADDRESS:</strong> 28 gulshan, Dhaka</p>
+                   <p><strong>TELEPHONE:</strong> +880 191 021 5485</p>
+                   <p><strong>EMAIL:</strong> mail@ebazar.com</p>
                  </div>
               </div>
           </div>

@@ -68,7 +68,7 @@ label.radio input:checked + span {
 
 .credit-inputs {
   background: rgb(247, 74, 68);
-  color: #fff !important;
+  /* color: #fff !important; */
   border-color: rgb(250, 104, 104);
 }
 
@@ -83,7 +83,7 @@ label.radio input:checked + span {
 }
 
 .form-control.credit-inputs:focus {
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255); */
   border: rgb(25, 25, 32);
 }
 
@@ -182,11 +182,11 @@ label.radio input:checked + span {
     
                         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png"/></span> </label>
     
-                        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png"/></span> </label>
+                        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="images/bkash.png"/></span> </label>
     
     
-                        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png"/></span> </label>
-                        <div><label class="credit-card-label">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
+                        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="images/nagad.png"/></span> </label>
+                        <div><label class="credit-card-label text-dark">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
                         <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
                         <div class="row">
                             <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>

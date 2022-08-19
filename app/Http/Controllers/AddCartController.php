@@ -50,7 +50,7 @@ class AddCartController extends Controller
             $cart = cart::where('user_id', '=', $id)->get();
             return view('home.show_cart', compact('cart'));
         } else {
-            return redirect('login');
+            return redirect('register');
         }
     }
 
