@@ -209,7 +209,7 @@ label.radio input:checked + span {
                         <hr class="line">
                         <div class="d-flex justify-content-between information"><span>Subtotal</span><span> {{$totalprice}} tk</span></div>
                         <div class="d-flex justify-content-between information"><span>Delivery Charge</span><span>{{$deliverycharge}} tk</span></div>
-                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span>Online Payment<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span><a href="{{url('stripe')}}">Online Payment</a><i class="fa fa-long-arrow-right ml-1"></i></span></button>
                         <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span><a href="{{url('cash_order')}}"> Cash On Delivery</a><i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
                         
                 </div>

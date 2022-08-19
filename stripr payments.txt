@@ -1,0 +1,33 @@
+https://dashboard.stripe.com
+
+https://www.itsolutionstuff.com/post/laravel-9-stripe-payment-gateway-integration-tutorialexample.html
+
+1.composer require stripe/stripe-php
+
+2.create a stripe account
+
+3.changes in the .env
+  a.STRIPE_KEY=
+  b.SRIPE_SECRET=
+  Thouse keys are collected from the stripe website developer->api 
+
+4.make route
+
+5.make a view for payment
+
+6.write code for payment in the controller
+
+
+
+
+test card
+
+Name: Test
+
+Number: 4242 4242 4242 4242
+
+CSV: 123
+
+Expiration Month: 12
+
+Expiration Year: 2028

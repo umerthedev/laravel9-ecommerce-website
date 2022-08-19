@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\product;
 use App\Models\order;
+use Session;
+use Stripe;
 
 
 
@@ -91,5 +93,40 @@ class AddCartController extends Controller
             $cart->delete();
         }
         return redirect()->back()->with('message', 'Thanks For Your order, We Will Connect With You Soon!!!');
+    }
+
+    public function stripe($totalprice)
+    {
+        return view('home.stripe', compact('totalprice'));
+    }
+
+
+    public function stripePost(Request $request)
+
+    {
+
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+
+
+        Stripe\Charge::create([
+
+            "amount" => 100 * 100,
+
+            "currency" => "usd",
+
+            "source" => $request->stripeToken,
+
+            "description" => "Test payment from itsolutionstuff.com."
+
+        ]);
+
+
+
+        Session::flash('success', 'Payment successful!');
+
+
+
+        return back();
     }
 }

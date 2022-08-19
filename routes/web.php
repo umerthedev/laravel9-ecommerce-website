@@ -63,3 +63,7 @@ Route::get('/remove_cart/{id}', [AddCartController::class, 'remove_cart']);
 
 // Order
 Route::get('/cash_order', [AddCartController::class, 'cash_order']);
+
+// stripe payment
+Route::get('/stripe/{totalprice}', [AddCartController::class, 'stripe']);
+Route::post('stripe', [AddCartController::class, 'stripePost'])->name('stripe.post');
