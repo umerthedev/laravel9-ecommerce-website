@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AddCartController;
+use App\Http\Controllers\SslCommerzPaymentController;
 
 
 /*
@@ -64,6 +65,18 @@ Route::get('/remove_cart/{id}', [AddCartController::class, 'remove_cart']);
 // Order
 Route::get('/cash_order', [AddCartController::class, 'cash_order']);
 
-// stripe payment
-Route::get('/stripe/{totalprice}', [AddCartController::class, 'stripe']);
-Route::post('stripe', [AddCartController::class, 'stripePost'])->name('stripe.post');
+
+
+// SSLCOMMERZ Start
+Route::get('/example1/{totalprice}', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
