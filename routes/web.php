@@ -36,11 +36,11 @@ Route::middleware([
 });
 Route::get('/redirect', [HomeController::class, 'redirect']);
 
-// Category Route:
+// Admin Category Route:
 Route::get('/view_catagory', [AdminController::class, 'view_catagory']);
-// Add catagory
+// Admin Add catagory
 Route::post('/add_category', [AdminController::class, 'add_category']);
-// delete Catagory
+// Admin delete Catagory
 Route::get('/delete_category/{id}', [AdminController::class, 'delete_category']);
 Route::get('/edit_category/{id}', [AdminController::class, 'edit_category']);
 Route::post('/update_category/{id}', [AdminController::class, 'update_category']);
@@ -48,7 +48,7 @@ Route::post('/update_category/{id}', [AdminController::class, 'update_category']
 
 
 
-// Product Route
+// Admin Product Route
 Route::get('view_product', [ProductController::class, 'view_product']);
 Route::post('add_product', [ProductController::class, 'add_product']);
 Route::get('/show_product', [ProductController::class, 'show_product']);
@@ -57,7 +57,17 @@ Route::get('/product_edit/{id}', [ProductController::class, 'product_edit']);
 Route::post('/update_product/{id}', [ProductController::class, 'UpdateProduct']);
 Route::get('/product_details/{id}', [ProductController::class, 'product_details']);
 
-// Add To Cart
+// Admin order tables
+Route::get('/order', [AdminController::class, 'order']);
+
+
+
+
+
+
+
+
+//frontend Add To Cart
 Route::post('/add_cart/{id}', [AddCartController::class, 'add_cart']);
 Route::get('/show_cart', [AddCartController::class, 'show_cart']);
 Route::get('/remove_cart/{id}', [AddCartController::class, 'remove_cart']);

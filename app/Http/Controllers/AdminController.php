@@ -53,4 +53,11 @@ class AdminController extends Controller
       // return view('admin.catagory')->with('message', 'Category updated Successfully');
       return redirect()->back()->with('message', 'Category updated Successfully');
    }
+
+
+
+   public function order()
+   {
+      return view('admin.order_lists');
+   }
 }

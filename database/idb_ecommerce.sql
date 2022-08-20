@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2022 at 03:36 AM
+-- Generation Time: Aug 20, 2022 at 08:37 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,8 +48,9 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `name`, `email`, `phone`, `address`, `product_title`, `price`, `quantity`, `image`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Samsung Galaxy F13 4GB', '66000', '3', '1660774924.jpg', '1', '1', '2022-08-18 05:28:47', '2022-08-18 05:28:47'),
-(2, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Nestle_Cerelac Wheat and Honey', '2600', '2', '1660775101.jpg', '2', '1', '2022-08-18 05:32:32', '2022-08-18 05:32:32');
+(21, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Samsung  F13 4GB', '22000', '1', '1660774924.jpg', '1', '1', '2022-08-20 04:46:37', '2022-08-20 04:46:37'),
+(24, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', 'Dhupiyan Check Saree', '300', '1', '1660776286.jpg', '5', '2', '2022-08-20 09:48:07', '2022-08-20 09:48:07'),
+(25, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', 'Nintendo Switch OLED - White', '43200', '1', '1660776192.png', '4', '2', '2022-08-20 09:48:11', '2022-08-20 09:48:11');
 
 -- --------------------------------------------------------
 
@@ -76,6 +77,40 @@ INSERT INTO `catagories` (`id`, `catagory_name`, `created_at`, `updated_at`) VAL
 (5, 'Baby Products', '2022-08-18 05:21:01', '2022-08-18 05:21:01'),
 (6, 'Groceries', '2022-08-18 05:21:04', '2022-08-18 05:21:04'),
 (7, 'Home Furnishings', '2022-08-18 05:21:21', '2022-08-18 05:21:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cod_orders`
+--
+
+CREATE TABLE `cod_orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `quantity` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `delivery_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cod_orders`
+--
+
+INSERT INTO `cod_orders` (`id`, `name`, `email`, `phone`, `address`, `user_id`, `product_title`, `quantity`, `price`, `image`, `product_id`, `payment_status`, `delivery_status`, `created_at`, `updated_at`) VALUES
+(1, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-20 09:46:00'),
+(2, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nestle_Cerelac Wheat and Honey', '1', '1300', '1660775101.jpg', '2', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-20 09:46:00'),
+(3, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Dhupiyan Check Saree', '1', '300', '1660776286.jpg', '5', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-20 09:47:48'),
+(4, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nintendo Switch OLED - White', '1', '43200', '1660776192.png', '4', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-20 09:47:48');
 
 -- --------------------------------------------------------
 
@@ -118,7 +153,39 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2022_08_07_163737_create_sessions_table', 1),
 (7, '2022_08_09_171802_create_catagories_table', 1),
 (8, '2022_08_09_193518_create_products_table', 1),
-(9, '2022_08_15_152002_create_carts_table', 1);
+(9, '2022_08_15_152002_create_carts_table', 1),
+(10, '2022_08_18_161754_create_orders_table', 2),
+(11, '2022_08_20_153335_create_con_orders_table', 3),
+(12, '2022_08_20_154222_create_cod_orders_table', 4),
+(13, '2022_08_20_154529_create_cod_orders_table', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `address` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `transaction_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currency` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `address`, `status`, `transaction_id`, `currency`) VALUES
+(1, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '630101e8c07c2', 'BDT'),
+(2, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '6301024bd7f86', 'BDT'),
+(3, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '630107cb09856', 'BDT'),
+(4, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '630107cb09f5c', 'BDT');
 
 -- --------------------------------------------------------
 
@@ -204,8 +271,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Kv4AYxN4uEVdiE8PFzhRTxRqfErjiNVrpLCNnmGO', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRW00dHZLdkdQN05KVnJ2VjFMelJ3SkRCTG9hY2h0OWl3bjhrZ1AzeCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMiO319', 1660786539),
-('SIvut5TySW28mkiJUdbacYx6PWtmtL0WyXbxRqZn', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieU5HR0ExQWo2VWgwRmRNcGp4dEVFUUZpdUU5MHU1TTBFS2UwdVhWQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvcHJvZHVjdF9lZGl0LzEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1660777248);
+('AqggbboOtWzBgH2a3RXMPa1CW5EZNdyETwUgr9xR', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoib2QzbmZ6cmhEaWZOTXRReHg3cFhWRHFPbWgwV0h0Q1AxR0NScENvMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njg6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvc2hvd19jYXJ0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1661020621),
+('bPAiouqOLolwKI8fPukWveLheBMJ6BaB0lv4HrzE', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiS2w1R2NQSEZOUURCcndocjh5a3M0anpSZWxWZDZUZGpSZGJ5OFJRTiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvNDM1MDAiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1661011915),
+('CR5hgUJrwgOQTJnNbJ35betrP0tFzzVStCnb5mf1', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYVh5N1pMVlFNdlZSTjFxS0o1ajVSYk9uRnh2Tjk1N2c0ZWM3c3VKdCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvNDM1MDAiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1661010507),
+('hmzrBVQAoGNDNrdpdKooOSrW6mviRg1MaetPDtw9', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoielU4Rk1qSEZibjNkZGNHR05sTTRFZlVzdjdSNTRZOVNKQ3JkYkgyMiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzE6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvMzAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1661010408),
+('NgmBvwuGprVsWrZkkRyhk7RRrrUMg59cTOKKvd2X', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaFdDU2drOFhHMFdCRTdGeU5GTm5iRXNXdHBIMWJIRmhoVzJ0anVsVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvNDM1MDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1661018079);
 
 -- --------------------------------------------------------
 
@@ -257,6 +327,12 @@ ALTER TABLE `catagories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cod_orders`
+--
+ALTER TABLE `cod_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -267,6 +343,12 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -313,13 +395,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `catagories`
 --
 ALTER TABLE `catagories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `cod_orders`
+--
+ALTER TABLE `cod_orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -331,7 +419,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

@@ -6,9 +6,9 @@ use App\Models\cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\product;
-use App\Models\order;
-use Session;
-use Stripe;
+use App\Models\cod_order;
+
+
 
 
 
@@ -73,7 +73,7 @@ class AddCartController extends Controller
 
         foreach ($data as $data) {
 
-            $order = new order;
+            $order = new cod_order;
             $order->name = $data->name;
             $order->email = $data->email;
             $order->phone = $data->phone;
