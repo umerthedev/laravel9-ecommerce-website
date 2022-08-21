@@ -70,4 +70,26 @@ class AdminController extends Controller
 
       return view('admin.op_order', compact('op_order'));
    }
+
+   public function delivered($id)
+   {
+      $order = cod_order::find($id);
+      $order->delivery_status = 'Delivered';
+      $order->save();
+      return redirect()->back()->with('message', 'Product Status Change As Delivered');
+   }
+   public function cancel($id)
+   {
+      $order = cod_order::find($id);
+      $order->delivery_status = 'Canceled';
+      $order->save();
+      return redirect()->back()->with('message', 'Order Canceled');
+   }
+   public function reset($id)
+   {
+      $order = cod_order::find($id);
+      $order->delivery_status = 'Processing';
+      $order->save();
+      return redirect()->back()->with('message', 'Product Status Change As Processing');
+   }
 }

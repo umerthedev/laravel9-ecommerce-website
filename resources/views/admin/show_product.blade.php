@@ -4,6 +4,12 @@
     @include('admin.css')
 
     <style>
+
+        #tbl1 {
+            max-height: auto;
+            overflow: auto;
+            display:inline-block;
+        }
         #inputcat{
             color: rgb(255, 255, 255);
             
@@ -48,7 +54,7 @@
 
                 @endif
                  
-                <table class="table" style="padding-top:100px" >
+                <table class="table" id="tbl1" style="padding-top:100px" >
 
                     <h1 id="h1">Product list</h1>
 

@@ -4,6 +4,13 @@
 <html lang="en">
   <head>
     @include('admin.css')
+    <style>
+     #tbl {
+     max-height: auto;
+     overflow: auto;
+     display:inline-block;
+      }
+    </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -14,6 +21,7 @@
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
+              <h1 style="text-align: center; margin-bottom:20px">Cash On Delivery Orders</h1>
 
                 @if(session()->has('message'))
 
@@ -25,10 +33,10 @@
 
                 @endif
 
-                <h1 style="text-align: center; margin-bottom:40px">Cash On Delivery Orders</h1>
+                
 
 
-                <table class="table" style="padding-top:100px">
+                <table class="table " id="tbl" >
                   <thead>
                     <tr>
                       
@@ -40,8 +48,9 @@
                       <th scope="col">Quantity</th>
                       <th scope="col">Price</th>
                       <th scope="col">Image</th>
-                      <th scope="col">Payment Status</th>
-                      {{-- <th scope="col">Delivery Status</th> --}}
+                      {{-- <th scope="col">Payment Status</th> --}}
+                      <th scope="col">Delivery Status</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -56,8 +65,24 @@
                        <td scope="row">{{$cod_order->quantity}}</td>                                           
                        <td scope="row">{{$cod_order->price}}</td>                                           
                        <td scope="row"><img src="{{url('product/'. $cod_order->image)}}" alt=""></td>                                           
-                       <td scope="row">{{$cod_order->payment_status}}</td>                                           
-                       {{-- <td scope="row">{{$cod_order->delivery_status}}</td>                                            --}}
+                       {{-- <td scope="row">{{$cod_order->payment_status}}</td>                                            --}}
+                       <td scope="row">{{$cod_order->delivery_status}}</td>    
+                       
+                       
+                       <td scope="row">
+                        @if($cod_order->delivery_status=='Processing')
+                        <a href="{{url('delivered',$cod_order->id)}}" onclick="return confirm('Are You Sure Make This Order As Delivered???')" class="btn btn-success">Delivered</a>   
+                        @else
+                        <p style="color: aquamarine">Delivered</p> 
+                        @endif                                           
+                       </td>                                           
+                       <td scope="row">
+                        <a href="{{url('cancel',$cod_order->id)}}" class="btn btn-danger">Cancel</a>
+                       </td>    
+                       <td>
+                        <a href="{{url('reset',$cod_order->id)}}" class="btn btn-danger">Reset</a>
+                      </td>                                       
+                                                             
                   </tr>
                     @endforeach
                        
@@ -74,5 +99,6 @@
           
           
     @include('admin.script')
+    
   </body>
 </html>

@@ -22,3 +22,8 @@
     <!-- Custom js for this page -->
     <script type="text/javascript" src="{{ URL::asset('admin/assets/js/dashboard.js') }}"></script>
      <!-- End custom js for this page -->
+     <script>$(document).ready(function () {
+      $('#example').DataTable({
+          scrollX: true,
+                });
+         });</script>

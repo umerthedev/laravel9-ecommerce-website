@@ -60,6 +60,9 @@ Route::get('/product_details/{id}', [ProductController::class, 'product_details'
 // Admin order tables
 Route::get('/cod_orders', [AdminController::class, 'cod_orders']);
 Route::get('/op_orders', [AdminController::class, 'op_orders']);
+Route::get('/delivered/{id}', [AdminController::class, 'delivered']);
+Route::get('/cancel/{id}', [AdminController::class, 'cancel']);
+Route::get('/reset/{id}', [AdminController::class, 'reset']);
 
 
 
