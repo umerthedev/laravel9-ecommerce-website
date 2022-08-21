@@ -58,7 +58,8 @@ Route::post('/update_product/{id}', [ProductController::class, 'UpdateProduct'])
 Route::get('/product_details/{id}', [ProductController::class, 'product_details']);
 
 // Admin order tables
-Route::get('/order', [AdminController::class, 'order']);
+Route::get('/cod_orders', [AdminController::class, 'cod_orders']);
+Route::get('/op_orders', [AdminController::class, 'op_orders']);
 
 
 
@@ -72,7 +73,7 @@ Route::post('/add_cart/{id}', [AddCartController::class, 'add_cart']);
 Route::get('/show_cart', [AddCartController::class, 'show_cart']);
 Route::get('/remove_cart/{id}', [AddCartController::class, 'remove_cart']);
 
-// Order
+//frontend Order
 Route::get('/cash_order', [AddCartController::class, 'cash_order']);
 
 

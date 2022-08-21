@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\catagory;
+use App\Models\cod_order;
+use App\Models\order;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 
@@ -56,8 +58,16 @@ class AdminController extends Controller
 
 
 
-   public function order()
+   public function cod_orders()
    {
-      return view('admin.order_lists');
+      $cod_order = cod_order::all();
+
+      return view('admin.cod_order', compact('cod_order'));
+   }
+   public function op_orders()
+   {
+      $op_order = order::all();
+
+      return view('admin.op_order', compact('op_order'));
    }
 }

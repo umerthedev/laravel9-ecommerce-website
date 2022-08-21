@@ -89,14 +89,23 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('order')}}">
+        <a class="nav-link" href="{{url('cod_orders')}}">
           <span class="menu-icon">
             <i class="mdi mdi-table-large"></i>
           </span>
-          <span class="menu-title">Orders</span>
+          <span class="menu-title">COD Orders</span>
         </a>
       </li>
-     
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('op_orders')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-table-large"></i>
+          </span>
+          <span class="menu-title">SSL Paid Orders</span>
+        </a>
+      </li>
       
+     
+     
     </ul>
   </nav>

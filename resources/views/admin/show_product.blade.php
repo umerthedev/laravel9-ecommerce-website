@@ -69,7 +69,7 @@
                             @foreach ($product as $product)                         
                  
                         <tr>                                 
-                        <th scope="row">{{$product->id}}</th>
+                        <td scope="row">{{$product->id}}</td>
                         <td>{{$product->title}}</td>
                         <td>{{$product->description}}</td>
                         <td>{{$product->price}}</td>
