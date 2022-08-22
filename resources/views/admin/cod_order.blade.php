@@ -75,13 +75,14 @@
                               <a href="{{url('delivered',$cod_order->id)}}" onclick="return confirm('Are You Sure Make This Order As Delivered???')" class="btn btn-success">Delivered</a>   
                             @else
                               <p style="color: aquamarine">Delivered</p> 
-                            @endif                
+                            @endif  
+                                          
                        
-                            @if($cod_order->delivery_status=='Processing')
+                            {{-- @if($cod_order->delivery_status=='Processing') --}}
                               <a href="{{url('cancel',$cod_order->id)}}" class="btn btn-danger">Cancel</a>
-                            @else
+                            {{-- @else
                               <p style="color: red">Canceled</p> 
-                            @endif                                      
+                            @endif                                       --}}
                          
                               <a href="{{url('reset',$cod_order->id)}}" class="btn btn-danger">Reset</a>
                       </td>                                       
