@@ -5,3 +5,16 @@ user and pass
 
 user:umerdev
 pass:Umerdev917
+
+
+
+Work To do:
+
+Email verification
+Email notification
+Make search
+Display admin dash board data
+show and cancel orders
+add comment and reply system
+product search with pagination
+add an alert popup message
