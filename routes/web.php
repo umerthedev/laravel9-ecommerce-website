@@ -64,6 +64,10 @@ Route::get('/delivered/{id}', [AdminController::class, 'delivered']);
 Route::get('/cancel/{id}', [AdminController::class, 'cancel']);
 Route::get('/reset/{id}', [AdminController::class, 'reset']);
 
+// Admin PDF download
+Route::get('/print_pdf/{id}', [AdminController::class, 'print_pdf']);
+
+
 
 
 

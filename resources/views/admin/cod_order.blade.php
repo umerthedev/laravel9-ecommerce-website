@@ -48,9 +48,10 @@
                       <th scope="col">Quantity</th>
                       <th scope="col">Price</th>
                       <th scope="col">Image</th>
-                      {{-- <th scope="col">Payment Status</th> --}}
+                      <th scope="col">Payment Status</th>
                       <th scope="col">Delivery Status</th>
-                      <th scope="col">Action</th>
+                      <th scope="col" style="text-align: center">Action</th>
+                      <th scope="col">Invoice</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -65,23 +66,28 @@
                        <td scope="row">{{$cod_order->quantity}}</td>                                           
                        <td scope="row">{{$cod_order->price}}</td>                                           
                        <td scope="row"><img src="{{url('product/'. $cod_order->image)}}" alt=""></td>                                           
-                       {{-- <td scope="row">{{$cod_order->payment_status}}</td>                                            --}}
+                       <td scope="row">{{$cod_order->payment_status}}</td>                                           
                        <td scope="row">{{$cod_order->delivery_status}}</td>    
                        
                        
                        <td scope="row">
-                        @if($cod_order->delivery_status=='Processing')
-                        <a href="{{url('delivered',$cod_order->id)}}" onclick="return confirm('Are You Sure Make This Order As Delivered???')" class="btn btn-success">Delivered</a>   
-                        @else
-                        <p style="color: aquamarine">Delivered</p> 
-                        @endif                                           
-                       </td>                                           
-                       <td scope="row">
-                        <a href="{{url('cancel',$cod_order->id)}}" class="btn btn-danger">Cancel</a>
-                       </td>    
-                       <td>
-                        <a href="{{url('reset',$cod_order->id)}}" class="btn btn-danger">Reset</a>
+                            @if($cod_order->delivery_status=='Processing')
+                              <a href="{{url('delivered',$cod_order->id)}}" onclick="return confirm('Are You Sure Make This Order As Delivered???')" class="btn btn-success">Delivered</a>   
+                            @else
+                              <p style="color: aquamarine">Delivered</p> 
+                            @endif                
+                       
+                            @if($cod_order->delivery_status=='Processing')
+                              <a href="{{url('cancel',$cod_order->id)}}" class="btn btn-danger">Cancel</a>
+                            @else
+                              <p style="color: red">Canceled</p> 
+                            @endif                                      
+                         
+                              <a href="{{url('reset',$cod_order->id)}}" class="btn btn-danger">Reset</a>
                       </td>                                       
+                       <td>
+                              <a href="{{url('print_pdf',$cod_order->id)}}" class="btn btn-secondary">Invoice</a>
+                       </td>                                       
                                                              
                   </tr>
                     @endforeach

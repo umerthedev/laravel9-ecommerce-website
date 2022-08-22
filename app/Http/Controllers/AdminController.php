@@ -7,6 +7,7 @@ use App\Models\cod_order;
 use App\Models\order;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
+use PDF;
 
 
 class AdminController extends Controller
@@ -57,27 +58,30 @@ class AdminController extends Controller
    }
 
 
-
+   // Cash on delivery controller
    public function cod_orders()
    {
       $cod_order = cod_order::all();
 
       return view('admin.cod_order', compact('cod_order'));
    }
+   // SSl Payment controller
    public function op_orders()
    {
       $op_order = order::all();
 
       return view('admin.op_order', compact('op_order'));
    }
-
+   // delivery done controller
    public function delivered($id)
    {
       $order = cod_order::find($id);
       $order->delivery_status = 'Delivered';
+      $order->payment_status = 'Paid';
       $order->save();
       return redirect()->back()->with('message', 'Product Status Change As Delivered');
    }
+   // order cancel controller
    public function cancel($id)
    {
       $order = cod_order::find($id);
@@ -85,11 +89,22 @@ class AdminController extends Controller
       $order->save();
       return redirect()->back()->with('message', 'Order Canceled');
    }
+   // order reset controller
    public function reset($id)
    {
       $order = cod_order::find($id);
       $order->delivery_status = 'Processing';
+      $order->payment_status = 'Cash On Delivery';
       $order->save();
       return redirect()->back()->with('message', 'Product Status Change As Processing');
+   }
+
+   // Invoice PDF Download controller
+
+   public function print_pdf($id)
+   {
+      $cod_order = cod_order::find($id);
+      $pdf = PDF::loadView('admin.pdf', compact('cod_order'));
+      return $pdf->download('Invoice.pdf');
    }
 }
