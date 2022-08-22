@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2022 at 08:37 PM
+-- Generation Time: Aug 22, 2022 at 02:48 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -48,9 +48,8 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `name`, `email`, `phone`, `address`, `product_title`, `price`, `quantity`, `image`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(21, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Samsung  F13 4GB', '22000', '1', '1660774924.jpg', '1', '1', '2022-08-20 04:46:37', '2022-08-20 04:46:37'),
-(24, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', 'Dhupiyan Check Saree', '300', '1', '1660776286.jpg', '5', '2', '2022-08-20 09:48:07', '2022-08-20 09:48:07'),
-(25, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', 'Nintendo Switch OLED - White', '43200', '1', '1660776192.png', '4', '2', '2022-08-20 09:48:11', '2022-08-20 09:48:11');
+(25, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', 'Nintendo Switch OLED - White', '43200', '1', '1660776192.png', '4', '2', '2022-08-20 09:48:11', '2022-08-20 09:48:11'),
+(26, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Nestle_Cerelac Wheat and Honey', '1300', '1', '1660775101.jpg', '2', '1', '2022-08-21 07:22:07', '2022-08-21 07:22:07');
 
 -- --------------------------------------------------------
 
@@ -107,10 +106,11 @@ CREATE TABLE `cod_orders` (
 --
 
 INSERT INTO `cod_orders` (`id`, `name`, `email`, `phone`, `address`, `user_id`, `product_title`, `quantity`, `price`, `image`, `product_id`, `payment_status`, `delivery_status`, `created_at`, `updated_at`) VALUES
-(1, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-20 09:46:00'),
-(2, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nestle_Cerelac Wheat and Honey', '1', '1300', '1660775101.jpg', '2', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-20 09:46:00'),
+(1, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-22 05:31:00'),
+(2, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nestle_Cerelac Wheat and Honey', '1', '1300', '1660775101.jpg', '2', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-22 05:27:13'),
 (3, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Dhupiyan Check Saree', '1', '300', '1660776286.jpg', '5', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-20 09:47:48'),
-(4, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nintendo Switch OLED - White', '1', '43200', '1660776192.png', '4', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-20 09:47:48');
+(4, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nintendo Switch OLED - White', '1', '43200', '1660776192.png', '4', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-21 12:31:24'),
+(5, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', '1', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-21 06:24:54', '2022-08-21 06:24:54');
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,9 @@ INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `address`, `stat
 (1, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '630101e8c07c2', 'BDT'),
 (2, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '6301024bd7f86', 'BDT'),
 (3, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '630107cb09856', 'BDT'),
-(4, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '630107cb09f5c', 'BDT');
+(4, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '630107cb09f5c', 'BDT'),
+(5, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Failed', '630231887a567', 'BDT'),
+(6, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '63023188842f0', 'BDT');
 
 -- --------------------------------------------------------
 
@@ -243,7 +245,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `title`, `description`, `image`, `catagory`, `quantity`, `price`, `discount_price`, `created_at`, `updated_at`) VALUES
 (1, 'Samsung  F13 4GB', NULL, '1660774924.jpg', 'Mobiles and Tablets', '10', '23500', '22000', '2022-08-18 05:22:04', '2022-08-18 06:00:42'),
-(2, 'Nestle_Cerelac Wheat and Honey', 'Nestle_Cerelac', '1660775101.jpg', 'Baby Products', '10', '1400', '1300', '2022-08-18 05:25:01', '2022-08-18 05:58:29'),
+(2, 'Nestle_Cerelac Wheat and Honey', NULL, '1660775101.jpg', 'Baby Products', '10', '1400', '1200', '2022-08-18 05:25:01', '2022-08-21 09:16:59'),
 (3, 'Green Sound Card USB', 'Sound Card USB', '1660776048.png', 'Consumer Electronics', '20', '1000', '800', '2022-08-18 05:40:48', '2022-08-18 05:58:42'),
 (4, 'Nintendo Switch OLED - White', 'Nintendo Switch', '1660776192.png', 'Consumer Electronics', '5', '46000', '43200', '2022-08-18 05:43:12', '2022-08-18 05:58:58'),
 (5, 'Dhupiyan Check Saree', 'Dhupiyan Check Saree', '1660776286.jpg', 'Fashion', '5', '590', '300', '2022-08-18 05:44:46', '2022-08-18 05:44:46'),
@@ -271,11 +273,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('AqggbboOtWzBgH2a3RXMPa1CW5EZNdyETwUgr9xR', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoib2QzbmZ6cmhEaWZOTXRReHg3cFhWRHFPbWgwV0h0Q1AxR0NScENvMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njg6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvc2hvd19jYXJ0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1661020621),
-('bPAiouqOLolwKI8fPukWveLheBMJ6BaB0lv4HrzE', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiS2w1R2NQSEZOUURCcndocjh5a3M0anpSZWxWZDZUZGpSZGJ5OFJRTiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvNDM1MDAiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1661011915),
-('CR5hgUJrwgOQTJnNbJ35betrP0tFzzVStCnb5mf1', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYVh5N1pMVlFNdlZSTjFxS0o1ajVSYk9uRnh2Tjk1N2c0ZWM3c3VKdCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvNDM1MDAiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1661010507),
-('hmzrBVQAoGNDNrdpdKooOSrW6mviRg1MaetPDtw9', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoielU4Rk1qSEZibjNkZGNHR05sTTRFZlVzdjdSNTRZOVNKQ3JkYkgyMiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzE6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvMzAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6Mjt9', 1661010408),
-('NgmBvwuGprVsWrZkkRyhk7RRrrUMg59cTOKKvd2X', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaFdDU2drOFhHMFdCRTdGeU5GTm5iRXNXdHBIMWJIRmhoVzJ0anVsVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NzM6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvZXhhbXBsZTEvNDM1MDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1661018079);
+('E3gqffq7bXqawVsAW125sSdVVKpjgQcVv8OQ4zE6', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSUloWW14ejZOVUR3aGRYQjQ5WUx1NUQxalM0SjNwSHpIQ1hVUklidyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njk6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvY29kX29yZGVycyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1661171791);
 
 -- --------------------------------------------------------
 
@@ -395,7 +393,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `catagories`
@@ -407,7 +405,7 @@ ALTER TABLE `catagories`
 -- AUTO_INCREMENT for table `cod_orders`
 --
 ALTER TABLE `cod_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -425,7 +423,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
