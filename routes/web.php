@@ -34,7 +34,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-Route::get('/redirect', [HomeController::class, 'redirect']);
+Route::get('/redirect', [HomeController::class, 'redirect'])->middleware('auth', 'verified');
 
 // Admin Category Route:
 Route::get('/view_catagory', [AdminController::class, 'view_catagory']);
