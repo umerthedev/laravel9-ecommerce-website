@@ -67,6 +67,10 @@ Route::get('/reset/{id}', [AdminController::class, 'reset']);
 // Admin PDF download
 Route::get('/print_pdf/{id}', [AdminController::class, 'print_pdf']);
 
+// Sending Mail
+Route::get('/send_mail/{id}', [AdminController::class, 'send_mail']);
+Route::post('/send_user_email/{id}', [AdminController::class, 'send_user_email']);
+
 
 
 

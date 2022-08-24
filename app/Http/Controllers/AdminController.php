@@ -8,7 +8,9 @@ use App\Models\order;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use PDF;
-
+use Notification;
+use App\Notifications\SendEmailNotification;
+use Illuminate\Notifications\Notification as NotificationsNotification;
 
 class AdminController extends Controller
 {
@@ -106,5 +108,30 @@ class AdminController extends Controller
       $cod_order = cod_order::find($id);
       $pdf = PDF::loadView('admin.pdf', compact('cod_order'));
       return $pdf->download('Invoice.pdf');
+   }
+
+   // Send Mail Function
+   public function send_mail($id)
+   {
+      $cod_order = cod_order::find($id);
+      return view('admin.mail_info', compact('cod_order'));
+   }
+
+   public function send_user_email(Request $request, $id)
+   {
+      $cod_order = cod_order::find($id);
+
+      $details = [
+
+         'greeting' => $request->greeting,
+         'firstline' => $request->firstline,
+         'body' => $request->body,
+         'ebutton' => $request->ebutton,
+         'url' => $request->url,
+         'lastline' => $request->lastline,
+
+      ];
+      Notification::send($cod_order, new SendEmailNotification($details));
+      return redirect()->back('message', 'Mail Sent Successfully');
    }
 }

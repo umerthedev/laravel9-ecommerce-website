@@ -52,6 +52,7 @@
                       <th scope="col">Delivery Status</th>
                       <th scope="col" style="text-align: center">Action</th>
                       <th scope="col">Invoice</th>
+                      <th scope="col">Send Mail</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -88,6 +89,9 @@
                       </td>                                       
                        <td>
                               <a href="{{url('print_pdf',$cod_order->id)}}" class="btn btn-secondary">Invoice</a>
+                       </td>                                       
+                       <td>
+                              <a href="{{url('send_mail',$cod_order->id)}}" class="btn btn-info">Send Mail</a>
                        </td>                                       
                                                              
                   </tr>
