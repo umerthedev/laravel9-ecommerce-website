@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AddCartController;
 use App\Http\Controllers\SslCommerzPaymentController;
-
+use Stripe\SearchResult;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +70,10 @@ Route::get('/print_pdf/{id}', [AdminController::class, 'print_pdf']);
 // Sending Mail
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail']);
 Route::post('/send_user_email/{id}', [AdminController::class, 'send_user_email']);
+
+// Order Search
+Route::get('/search', [AdminController::class, 'search_data']);
+
 
 
 

@@ -134,4 +134,11 @@ class AdminController extends Controller
       Notification::send($cod_order, new SendEmailNotification($details));
       return redirect()->back('message', 'Mail Sent Successfully');
    }
+
+   public function search_data(Request $request)
+   {
+      $searchText = $request->search;
+      $cod_order = cod_order::where('name', 'LIKE', "%$searchText%")->orWhere('phone', 'LIKE', "%$searchText%")->orWhere('product_title', 'LIKE', "%$searchText%")->orWhere('email', 'LIKE', "%$searchText%")->get();
+      return view('admin.cod_order', compact('cod_order'));
+   }
 }

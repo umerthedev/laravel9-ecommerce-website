@@ -32,9 +32,17 @@
                 </div>               
 
                 @endif
-
-                
-
+                <div>
+                    <ul class="navbar-nav w-100">
+                      <li class="nav-item w-100">
+                        <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex" action="{{url('search')}}" method="get">
+                          @csrf
+                          <input type="text" class="form-control text-white"name="search" placeholder="Search Orders by Name, Number, Phone, Email">
+                          <input style="margin-left: 10px" type="submit" class="btn btn-info" value="Search">
+                        </form>
+                      </li>
+                    </ul> 
+               </div>        
 
                 <table class="table " id="tbl" >
                   <thead>
@@ -56,7 +64,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($cod_order as $cod_order)                         
+                    @forelse ($cod_order as $cod_order)                         
          
                     <tr>                                 
                        <td scope="row">{{$cod_order->name}}</td>                                           
@@ -95,7 +103,13 @@
                        </td>                                       
                                                              
                   </tr>
-                    @endforeach
+                  @empty
+                  <tr>
+                    <td colspan="20">
+                        No Data Found 
+                    </td>
+                  </tr>
+                    @endforelse
                        
                   </tbody>
 
