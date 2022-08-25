@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2022 at 02:48 PM
+-- Generation Time: Aug 25, 2022 at 07:29 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -49,7 +49,8 @@ CREATE TABLE `carts` (
 
 INSERT INTO `carts` (`id`, `name`, `email`, `phone`, `address`, `product_title`, `price`, `quantity`, `image`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (25, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', 'Nintendo Switch OLED - White', '43200', '1', '1660776192.png', '4', '2', '2022-08-20 09:48:11', '2022-08-20 09:48:11'),
-(26, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Nestle_Cerelac Wheat and Honey', '1300', '1', '1660775101.jpg', '2', '1', '2022-08-21 07:22:07', '2022-08-21 07:22:07');
+(27, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Nestle_Cerelac Wheat and Honey', '1200', '1', '1660775101.jpg', '2', '1', '2022-08-22 06:53:10', '2022-08-22 06:53:10'),
+(28, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', 'Halfsilk Saree for Women', '430', '1', '1660776443.jpg', '6', '1', '2022-08-22 06:53:25', '2022-08-22 06:53:25');
 
 -- --------------------------------------------------------
 
@@ -106,11 +107,13 @@ CREATE TABLE `cod_orders` (
 --
 
 INSERT INTO `cod_orders` (`id`, `name`, `email`, `phone`, `address`, `user_id`, `product_title`, `quantity`, `price`, `image`, `product_id`, `payment_status`, `delivery_status`, `created_at`, `updated_at`) VALUES
-(1, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-22 05:31:00'),
+(1, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-22 09:57:25'),
 (2, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nestle_Cerelac Wheat and Honey', '1', '1300', '1660775101.jpg', '2', 'Cash On Delivery', 'Processing', '2022-08-20 09:46:00', '2022-08-22 05:27:13'),
 (3, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Dhupiyan Check Saree', '1', '300', '1660776286.jpg', '5', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-20 09:47:48'),
 (4, 'umer', 'umer@gmail.com', '01245642445', 'dhaka mirpur', '2', 'Nintendo Switch OLED - White', '1', '43200', '1660776192.png', '4', 'Cash On Delivery', 'Processing', '2022-08-20 09:47:48', '2022-08-21 12:31:24'),
-(5, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', '1', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-21 06:24:54', '2022-08-21 06:24:54');
+(5, 'admin', 'admin@gmail.com', '01564865465', 'dhaka mirpur', '1', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-21 06:24:54', '2022-08-21 06:24:54'),
+(6, 'apple', 'farukom@gmail.com', '845798754', '123 kazipara, Mirpur Dhaka', '8', 'Samsung  F13 4GB', '1', '22000', '1660774924.jpg', '1', 'Cash On Delivery', 'Processing', '2022-08-24 13:15:38', '2022-08-24 13:15:38'),
+(7, 'apple', 'farukom@gmail.com', '845798754', '123 kazipara, Mirpur Dhaka', '8', 'Nestle_Cerelac Wheat and Honey', '1', '1200', '1660775101.jpg', '2', 'Cash On Delivery', 'Processing', '2022-08-24 13:15:38', '2022-08-24 13:15:38');
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,25 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2022_08_18_161754_create_orders_table', 2),
 (11, '2022_08_20_153335_create_con_orders_table', 3),
 (12, '2022_08_20_154222_create_cod_orders_table', 4),
-(13, '2022_08_20_154529_create_cod_orders_table', 5);
+(13, '2022_08_20_154529_create_cod_orders_table', 5),
+(14, '2022_08_24_175557_create_notifications_table', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_id` bigint(20) UNSIGNED NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `read_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -182,12 +203,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `address`, `status`, `transaction_id`, `currency`) VALUES
-(1, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '630101e8c07c2', 'BDT'),
-(2, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '6301024bd7f86', 'BDT'),
-(3, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Processing', '630107cb09856', 'BDT'),
-(4, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '630107cb09f5c', 'BDT'),
-(5, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Failed', '630231887a567', 'BDT'),
-(6, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '63023188842f0', 'BDT');
+(8, 'Customer Name', 'customer@mail.com', '8801XXXXXXXXX', 10, 'Customer Address', 'Pending', '63037c5d40177', 'BDT');
 
 -- --------------------------------------------------------
 
@@ -273,7 +289,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('E3gqffq7bXqawVsAW125sSdVVKpjgQcVv8OQ4zE6', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSUloWW14ejZOVUR3aGRYQjQ5WUx1NUQxalM0SjNwSHpIQ1hVUklidyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njk6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvY29kX29yZGVycyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1661171791);
+('GAeEBAbdQKAXeX0W9g8sbVbhSrwwGriaPtXNiLjs', 8, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiaEcybnd0enZ5YjRHVXIzMzluWVpUNEdEOXRhdXdNSlJTbnZXODdteSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Njc6Imh0dHA6Ly9sb2NhbGhvc3QvbGFyYXZlbC9sYXJhdmVsOS1lY29tbWVyY2Utd2Vic2l0ZS9wdWJsaWMvcmVkaXJlY3QiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aTo4O3M6MzoidXJsIjthOjA6e319', 1661368634);
 
 -- --------------------------------------------------------
 
@@ -305,8 +321,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `usertype`, `phone`, `address`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '1', '01564865465', 'dhaka mirpur', NULL, '$2y$10$gKTLGBdf1SV.oS6NWfZaf.vMkGvCqE/LBF/hdgwvKtvSQOByctWC2', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-18 05:15:59', '2022-08-18 05:15:59'),
-(2, 'umer', 'umer@gmail.com', '0', '01245642445', 'dhaka mirpur', NULL, '$2y$10$IyRXWvbNo.o2cGTzpNeqtuYYJPUzksYia2fztnRlyxqOvk9.2Q3fS', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-18 05:16:27', '2022-08-18 05:16:27');
+(1, 'admin', 'admin@gmail.com', '1', '01564865465', 'dhaka mirpur', '2022-08-23 15:58:43', '$2y$10$gKTLGBdf1SV.oS6NWfZaf.vMkGvCqE/LBF/hdgwvKtvSQOByctWC2', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-18 05:15:59', '2022-08-18 05:15:59'),
+(2, 'umer', 'umer@gmail.com', '0', '01245642445', 'dhaka mirpur', '2022-08-23 15:53:37', '$2y$10$IyRXWvbNo.o2cGTzpNeqtuYYJPUzksYia2fztnRlyxqOvk9.2Q3fS', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-18 05:16:27', '2022-08-18 05:16:27'),
+(8, 'apple', 'farukom@gmail.com', '0', '845798754', '123 kazipara, Mirpur Dhaka', '2022-08-25 19:15:02', '$2y$10$iS9fadFSCKoSL5O8PtqS2ur34n3SqtTspdf3wkN7UEea0VXlkkvgG', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-24 13:13:31', '2022-08-24 13:13:31');
 
 --
 -- Indexes for dumped tables
@@ -342,6 +359,13 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
 
 --
 -- Indexes for table `orders`
@@ -393,7 +417,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `catagories`
@@ -405,7 +429,7 @@ ALTER TABLE `catagories`
 -- AUTO_INCREMENT for table `cod_orders`
 --
 ALTER TABLE `cod_orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -417,13 +441,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -441,7 +465,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
