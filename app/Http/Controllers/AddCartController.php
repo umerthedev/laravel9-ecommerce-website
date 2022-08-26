@@ -94,4 +94,17 @@ class AddCartController extends Controller
         }
         return redirect()->back()->with('message', 'Thanks For Your order, We Will Connect With You Soon!!!');
     }
+
+    // Show Orders in header
+    public function show_order()
+    {
+        if(Auth::id())
+        {
+            return view('home.show_order');
+        }
+        else
+        {
+            return redirect('login');
+        }
+    }
 }

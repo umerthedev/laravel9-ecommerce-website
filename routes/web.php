@@ -91,6 +91,10 @@ Route::get('/remove_cart/{id}', [AddCartController::class, 'remove_cart']);
 //frontend Order
 Route::get('/cash_order', [AddCartController::class, 'cash_order']);
 
+// Show and cancel Order
+Route::get('/show_order', [AddCartController::class, 'show_order']);
+
+
 
 
 // SSLCOMMERZ Start
