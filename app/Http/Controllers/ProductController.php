@@ -90,7 +90,7 @@ class ProductController extends Controller
     }
     public function products_show()
     {
-        $product = product::all();
+        $product = product::paginate(6);
         return view('home.header_products', compact('product'));
        
     }
