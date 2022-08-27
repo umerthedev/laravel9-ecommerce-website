@@ -100,11 +100,21 @@ class AddCartController extends Controller
     {
         if(Auth::id())
         {
-            return view('home.show_order');
+            $user = Auth::user();
+            $userid = $user->id;
+            $cod_order = cod_order::where('user_id','=',$userid)->get();
+            return view('home.show_order',compact('cod_order'));
         }
         else
         {
             return redirect('login');
         }
+    }
+    public function cancel_order($id)
+    {
+        $cod_order = cod_order::find($id);
+        $cod_order->delivery_status='You Canceled This Order';
+        $cod_order->save();
+        return redirect()->back()->with('message', 'Order Canceled Successfully!!!');   
     }
 }

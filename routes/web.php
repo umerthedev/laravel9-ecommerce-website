@@ -95,6 +95,7 @@ Route::get('/cash_order', [AddCartController::class, 'cash_order']);
 
 // Show and cancel Order
 Route::get('/show_order', [AddCartController::class, 'show_order']);
+Route::get('/cancel_order/{id}', [AddCartController::class, 'cancel_order']);
 
 
 
