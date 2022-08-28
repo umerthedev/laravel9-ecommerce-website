@@ -56,6 +56,8 @@ Route::get('/delete_product/{id}', [ProductController::class, 'delete_product'])
 Route::get('/product_edit/{id}', [ProductController::class, 'product_edit']);
 Route::post('/update_product/{id}', [ProductController::class, 'UpdateProduct']);
 Route::get('/product_details/{id}', [ProductController::class, 'product_details']);
+Route::get('/products_show', [ProductController::class, 'products_show']);
+
 
 // Admin order tables
 Route::get('/cod_orders', [AdminController::class, 'cod_orders']);

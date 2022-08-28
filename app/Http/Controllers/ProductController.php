@@ -88,4 +88,10 @@ class ProductController extends Controller
         $product = product::find($id);
         return view('home.product_details', compact('product'));
     }
+    public function products_show()
+    {
+        $product = product::all();
+        return view('home.header_products', compact('product'));
+       
+    }
 }
