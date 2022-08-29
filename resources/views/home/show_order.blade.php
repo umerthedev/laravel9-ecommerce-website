@@ -57,7 +57,7 @@
          
        <div class="card">
          <div class="card-header px-2 py-2" style="text-align: center">
-            <h3 class="text-muted mb-0">Thanks for your Order, <span style="color: #ff2d6c;"></span>!</h3>
+            <h3 class="text-muted mb-0">Thanks for your Order, <span style="color: #ff2d6c;">{{Auth::user()->name}}</span>!</h3>
           </div>
           
            @if(session()->has('message'))
