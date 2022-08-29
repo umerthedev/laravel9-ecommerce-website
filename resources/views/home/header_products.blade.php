@@ -26,6 +26,17 @@
 
 
                 @endif
+                <div>
+                  <ul class="navbar-nav w-100">
+                    <li class="nav-item w-100">
+                      <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex" action="{{url('product_search2')}}" method="get">
+                        @csrf
+                        <input style="width: 800px; margin-left:10px" type="text" class="form-control text-white text-dark"name="Psearch" placeholder="Search Product">
+                        <input style="height: 40px; width: 20px; margin-left:10px" type="submit" class="btn btn-primary" value="Find">
+                      </form>
+                    </li>
+                  </ul> 
+              </div> 
                </div>
                <div class="row">
                  @foreach ($product as $products)
@@ -85,9 +96,7 @@
          </section>
 
 
-      <!-- footer start -->
-      @include('home.footer')
-      <!-- footer end -->
+     
 
       <div class="cpy_">
          <p class="mx-auto">© 2022 All Rights Reserved By <a href="#">IsDB Students</a><br>
@@ -96,6 +105,18 @@
          
          </p>
       </div>
+
+      {{-- Refresh Page and Keep Scroll Position --}}
+      <script>
+         document.addEventListener("DOMContentLoaded", function(event) { 
+             var scrollpos = localStorage.getItem('scrollpos');
+             if (scrollpos) window.scrollTo(0, scrollpos);
+         });
+ 
+         window.onbeforeunload = function(e) {
+             localStorage.setItem('scrollpos', window.scrollY);
+         };
+     </script>
       @include('home.script');
    </body>
 </html>

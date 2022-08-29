@@ -95,4 +95,21 @@ class ProductController extends Controller
         
        
     }
+
+    public function product_search(Request $request)
+    {
+        $product_search =$request->Psearch;
+        $product = product::where('title','LIKE',"%$product_search%")->orWhere('catagory','LIKE',"$product_search")->paginate(6);
+        return view('home.userpage', compact('product'));
+    }
+
+    public function product_search2(Request $request)
+    {
+        $product_search =$request->Psearch;
+        $product = product::where('title','LIKE',"%$product_search%")->orWhere('catagory','LIKE',"$product_search")->paginate(6);
+        return view('home.header_products', compact('product'));
+    }
+
+    
+
 }

@@ -97,6 +97,11 @@ Route::get('/cash_order', [AddCartController::class, 'cash_order']);
 Route::get('/show_order', [AddCartController::class, 'show_order']);
 Route::get('/cancel_order/{id}', [AddCartController::class, 'cancel_order']);
 
+// Search Product
+Route::get('/product_search', [ProductController::class, 'product_search']);
+Route::get('/product_search2', [ProductController::class, 'product_search2']);
+
+
 
 
 
