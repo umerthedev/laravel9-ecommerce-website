@@ -16,7 +16,21 @@
                   <h2>
                      Our <span>products</span>
                   </h2>
-                  @if(session()->has('message'))
+                 
+                   <div>
+                        <ul class="navbar-nav w-100">
+                          <li class="nav-item w-100">
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex" action="{{url('product_search2')}}" method="get">
+                              @csrf
+                              <input style="width: 800px; margin-left:10px" type="text" class="form-control text-white text-dark"name="Psearch" placeholder="Search Product">
+                              <input style="height: 40px; width: 20px; margin-left:10px" type="submit" class="btn btn-primary" value="Find">
+                            </form>
+                          </li>
+                        </ul> 
+                   </div> 
+                </div>
+                
+                @if(session()->has('message'))
 
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
@@ -26,18 +40,7 @@
 
 
                 @endif
-                <div>
-                  <ul class="navbar-nav w-100">
-                    <li class="nav-item w-100">
-                      <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex" action="{{url('product_search2')}}" method="get">
-                        @csrf
-                        <input style="width: 800px; margin-left:10px" type="text" class="form-control text-white text-dark"name="Psearch" placeholder="Search Product">
-                        <input style="height: 40px; width: 20px; margin-left:10px" type="submit" class="btn btn-primary" value="Find">
-                      </form>
-                    </li>
-                  </ul> 
-              </div> 
-               </div>
+
                <div class="row">
                  @foreach ($product as $products)
                      

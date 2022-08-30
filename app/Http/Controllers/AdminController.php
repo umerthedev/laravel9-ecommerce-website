@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\catagory;
 use App\Models\cod_order;
 use App\Models\order;
@@ -17,8 +17,15 @@ class AdminController extends Controller
    public function view_catagory()
    {
 
-      $data = catagory::all();
+      if (Auth::id())
+      {
+         $data = catagory::all();
       return view('admin.catagory', compact('data'));
+      }
+      else{
+         return redirect('login');
+      }
+      
    }
 
 
@@ -26,21 +33,36 @@ class AdminController extends Controller
 
    public function add_category(Request $request)
    {
-      $data = new catagory;
+
+      if (Auth::id())
+      {
+         $data = new catagory;
       $data->catagory_name = $request->category;
       $data->save();
 
       return redirect()->back()->with('message', 'Category Added Successfully');
+      }
+      else{
+         return redirect('login');
+      }
+      
    }
 
 
    public function delete_category($id)
    {
 
-      $data = catagory::find($id);
+      if (Auth::id())
+      {
+         $data = catagory::find($id);
       $data->delete();
 
       return redirect()->back()->with('message', 'Category Deleted Successfully');
+      }
+      else{
+         return redirect('login');
+      }
+      
    }
 
    public function edit_category($id)
