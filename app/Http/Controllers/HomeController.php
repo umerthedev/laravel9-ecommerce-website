@@ -8,14 +8,19 @@ use App\Models\User;
 use App\Models\product;
 use App\Models\cod_order;
 use App\Models\order;
+use App\Models\cart;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class HomeController extends Controller
 {
     // index
     public function index()
     {
+       
         $product = product::paginate(6);
         return view('home.userpage', compact('product'));
+    
     }
 
 

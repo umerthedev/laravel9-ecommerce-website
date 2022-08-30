@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\product;
 use App\Models\cod_order;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -35,7 +36,8 @@ class AddCartController extends Controller
                     $cart->price = $product->price * $cart->quantity;
                 }
                 $cart->save();
-                return redirect()->back()->with('message','Product Added Successfully'); 
+                Alert::success('Product Added Successfully','We Have Added Product To Cart');
+                return redirect()->back(); 
             }
             else
             {
@@ -56,7 +58,8 @@ class AddCartController extends Controller
                 $cart->quantity = $request->quantity;
     
                 $cart->save();
-                return redirect()->back()->with('message','Product Added Successfully');
+                Alert::success('Product Added Successfully','We Have Added Product To Cart');
+                return redirect()->back();
             }
 
             $cart = new cart;
