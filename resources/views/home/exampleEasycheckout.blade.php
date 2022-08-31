@@ -54,7 +54,7 @@
                           <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">{{$c->product_title}}</h6>
-                        <small class="text-muted">{{$c->quantity}}</small>
+                        <small class="text-muted">Quantity {{$c->quantity}}</small>
                     </div>
                     <span class="text-muted">{{$c->price}} tk</span>
                 </li>  
@@ -63,7 +63,7 @@
                           @endforeach
                 <!--  -->
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total  (BDT)</span>
+                    <span>Total (BDT)</span>
                     <strong>{{$totalprice}} TK</strong>
                 </li>
             </ul>

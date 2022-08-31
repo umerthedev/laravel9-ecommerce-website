@@ -4,6 +4,7 @@
      @include('home.css')    
    </head>
    <body>
+      @include('sweetalert::alert')
 
       <div class="hero_area">
          <!-- header section strats -->

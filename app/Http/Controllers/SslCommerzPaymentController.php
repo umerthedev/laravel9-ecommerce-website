@@ -108,7 +108,7 @@ class SslCommerzPaymentController extends Controller
         $cart = cart::where('user_id', $id)->get();
         $tot = 0;
         foreach ($cart as $c) {
-            $tot +=  $c->quantity*$c->price;
+            $tot += $c->price;
         }
         Log::info($tot);
         $post_data = array();
@@ -117,6 +117,7 @@ class SslCommerzPaymentController extends Controller
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
+        
         $post_data['cus_name'] = 'Customer Name';
         $post_data['cus_email'] = 'customer@mail.com';
         $post_data['cus_add1'] = 'Customer Address';
@@ -202,7 +203,9 @@ class SslCommerzPaymentController extends Controller
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Processing']);
 
-                echo "<br >Transaction is successfully Completed";
+                // echo "<br >Transaction is successfully Completed";
+                return redirect()->back()->with('message', ' Transaction is Successful
+                Transaction is successfully Completed!!!');
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.
@@ -217,7 +220,9 @@ class SslCommerzPaymentController extends Controller
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
-            echo "Transaction is successfully Completed";
+            // echo "Transaction is successfully Completed";
+            return redirect()->back()->with('message', ' Transaction is Successful
+                Transaction is successfully Completed!!!');
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
@@ -238,9 +243,11 @@ class SslCommerzPaymentController extends Controller
                 ->update(['status' => 'Failed']);
             echo "Transaction is Falied";
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
-            echo "Transaction is already Successful";
+            // echo "Transaction is already Successful";
+            return redirect()->back()->with('message', 'Transaction is already Successful!!!');
         } else {
-            echo "Transaction is Invalid";
+            // echo "Transaction is Invalid";
+            return redirect()->back()->with('message', 'Transaction is Invalid!!!');
         }
     }
 
@@ -258,9 +265,11 @@ class SslCommerzPaymentController extends Controller
                 ->update(['status' => 'Canceled']);
             echo "Transaction is Cancel";
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
-            echo "Transaction is already Successful";
+            // echo "Transaction is already Successful";
+            return redirect()->back()->with('message', 'Transaction is already Successful!!!');
         } else {
-            echo "Transaction is Invalid";
+            // echo "Transaction is Invalid";
+            return redirect()->back()->with('message', 'Transaction is Invalid!!!');
         }
     }
 
@@ -290,7 +299,8 @@ class SslCommerzPaymentController extends Controller
                         ->where('transaction_id', $tran_id)
                         ->update(['status' => 'Processing']);
 
-                    echo "Transaction is successfully Completed";
+                    // echo "Transaction is successfully Completed";
+                    return redirect()->back()->with('message', 'Transaction is already Successful!!!');
                 } else {
                     /*
                     That means IPN worked, but Transation validation failed.
@@ -300,20 +310,25 @@ class SslCommerzPaymentController extends Controller
                         ->where('transaction_id', $tran_id)
                         ->update(['status' => 'Failed']);
 
-                    echo "validation Fail";
+                    // echo "validation Fail";
+                    return redirect()->back()->with('message', 'validation Fail');
                 }
             } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
 
                 #That means Order status already updated. No need to udate database.
 
-                echo "Transaction is already successfully Completed";
+                // echo "Transaction is already successfully Completed";
+                return redirect()->back()->with('message', 'Transaction is already successfully Completed!!!');
             } else {
                 #That means something wrong happened. You can redirect customer to your product page.
 
-                echo "Invalid Transaction";
+                // echo "Invalid Transaction";
+                return redirect()->back()->with('message', 'Invalid Transaction!!!');
+
             }
         } else {
-            echo "Invalid Data";
+            // echo "Invalid Data";
+            return redirect()->back()->with('message', 'Invalid Data!!!');
         }
     }
 }
