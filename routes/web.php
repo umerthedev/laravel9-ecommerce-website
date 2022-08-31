@@ -106,7 +106,7 @@ Route::get('/product_search2', [ProductController::class, 'product_search2']);
 
 
 // SSLCOMMERZ Start
-Route::get('/example1/{totalprice}', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/checkout', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
 Route::post('/pay', [SslCommerzPaymentController::class, 'index']);

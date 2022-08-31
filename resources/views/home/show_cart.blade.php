@@ -151,24 +151,26 @@ label.radio input:checked + span {
                             <th scope="col">Product Quantity</th>
                             <th scope="col">Price</th>
                             <th scope="col">Image</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Actionn</th>
                           </tr>
                         </thead>
 
                         <tbody>
-                          <?php $totalprice= 0;?>
-                          @foreach ($cart as $cart)
+                          @php 
+                          $totalprice= 0;
+                          @endphp
+                          @foreach ($cart as $c)
                               
                            <tr>
                             <th scope="row">1</th>
-                            <td><div class="ml-2"><span class="font-weight-bold d-block">{{$cart->product_title}}</span></div></td>
-                            <td>{{$cart->quantity}}</td>
-                            <td>{{$cart->price}} tk</td>
-                            <td><div class="d-flex flex-row"><img class="rounded" src="{{url('product/' . $cart->image)}}" width="40"></td>
-                            <td><a class="btn btn-danger text-dark" onclick="confirmation(event)" href="{{url('/remove_cart',$cart->id)}}">Remove</a></td>
+                            <td><div class="ml-2"><span class="font-weight-bold d-block">{{$c->product_title}}</span></div></td>
+                            <td>{{$c->quantity}}</td>
+                            <td>{{$c->price}} tk</td>
+                            <td><div class="d-flex flex-row"><img class="rounded" src="{{url('product/' . $c->image)}}" width="40"></td>
+                            <td><a class="btn btn-danger text-dark" onclick="confirmation(event)" href="{{url('/remove_cart',$c->id)}}">Remove</a></td>
                           </tr>
 
-                          <?php $totalprice=$totalprice + $cart->price?>
+                          <?php $totalprice=$totalprice + $c->price?>
                           @endforeach
 
                          
@@ -211,7 +213,7 @@ label.radio input:checked + span {
                         <hr class="line">
                         <div class="d-flex justify-content-between information"><span>Subtotal</span><span> {{$totalprice}} tk</span></div>
                         <div class="d-flex justify-content-between information"><span>Delivery Charge</span><span>{{$deliverycharge}} tk</span></div>
-                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span><a href="{{url('example1',$totalprice)}}">Online Payment</a><i class="fa fa-long-arrow-right ml-1"></i></span></button>
+                        <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>{{$totalprice+$deliverycharge}} tk</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span><a href="{{url('checkout')}}">Online Payment</a><i class="fa fa-long-arrow-right ml-1"></i></span></button>
                         <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>{{$totalprice+$deliverycharge}} tk</span><span><a href="{{url('cash_order')}}"> Cash On Delivery</a><i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
                         
                 </div>

@@ -46,30 +46,25 @@
                 <span class="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <!--  -->
+                @php 
+                          $totalprice= 0;
+                          @endphp
+                          @foreach ($cart as $c)
+                          <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
+                        <h6 class="my-0">{{$c->product_title}}</h6>
+                        <small class="text-muted">{{$c->quantity}}</small>
                     </div>
-                    <span class="text-muted">1000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">50</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">150</span>
-                </li>
+                    <span class="text-muted">{{$c->price}} tk</span>
+                </li>  
+
+                          <?php $totalprice=$totalprice + $c->price?>
+                          @endforeach
+                <!--  -->
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (BDT)</span>
-                    <strong>1200 TK</strong>
+                    <span>Total  (BDT)</span>
+                    <strong>{{$totalprice}} TK</strong>
                 </li>
             </ul>
         </div>

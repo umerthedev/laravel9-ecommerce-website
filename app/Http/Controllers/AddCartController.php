@@ -89,7 +89,7 @@ class AddCartController extends Controller
 
     {
         if (Auth::id()) {
-            $id = Auth::user()->id;
+            $id = Auth::id();
             $cart = cart::where('user_id', '=', $id)->get();
             return view('home.show_cart', compact('cart'));
         } else {
