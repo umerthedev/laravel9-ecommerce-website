@@ -73,9 +73,9 @@
             <form method="POST" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-12 mb-3">
-                        <label for="firstName">Full name</label>
+                        <label for="firstName">Full name</label action="{{url('payViaAjax')}}">
                         <input type="text" name="customer_name" class="form-control" id="customer_name" placeholder=""
-                               value="John Doe" required>
+                               value="" required>
                         <div class="invalid-feedback">
                             Valid customer name is required.
                         </div>
@@ -89,7 +89,7 @@
                             <span class="input-group-text">+88</span>
                         </div>
                         <input type="text" name="customer_mobile" class="form-control" id="mobile" placeholder="Mobile"
-                               value="01711xxxxxx" required>
+                               value="" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your Mobile number is required.
                         </div>
@@ -99,7 +99,7 @@
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
                     <input type="email" name="customer_email" class="form-control" id="email"
-                           placeholder="you@example.com" value="you@example.com" required>
+                           placeholder="you@example.com" value="" required>
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
                     </div>

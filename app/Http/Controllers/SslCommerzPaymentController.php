@@ -117,6 +117,12 @@ class SslCommerzPaymentController extends Controller
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
         # CUSTOMER INFORMATION
+        // $order = new Order();
+        // $order->name = $request->customer_name;
+        // $order->email = $request->customer_email;
+        // $order->phone = $request->customer_mobile;
+        
+
         
         $post_data['cus_name'] = 'Customer Name';
         $post_data['cus_email'] = 'customer@mail.com';
@@ -128,7 +134,7 @@ class SslCommerzPaymentController extends Controller
         $post_data['cus_country'] = "Bangladesh";
         $post_data['cus_phone'] = '8801XXXXXXXXX';
         $post_data['cus_fax'] = "";
-
+        
         # SHIPMENT INFORMATION
         $post_data['ship_name'] = "Store Test";
         $post_data['ship_add1'] = "Dhaka";
