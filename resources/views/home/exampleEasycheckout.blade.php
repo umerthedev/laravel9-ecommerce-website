@@ -33,17 +33,16 @@
         
 <div class="container">
     <div class="py-5 text-center">
-        <h2>EasyCheckout (Popup) - SSLCommerz</h2>
+        <h2>Pay securely with SSLCommerz </h2>
 
-        <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. We have provided this
-            sample form for understanding EasyCheckout (Popup) Payment integration with SSLCommerz.</p>
+        
     </div>
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
+                <span class="badge badge-secondary badge-pill"></span>
             </h4>
             <ul class="list-group mb-3">
                 <!--  -->

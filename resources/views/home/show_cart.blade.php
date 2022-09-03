@@ -138,7 +138,7 @@ label.radio input:checked + span {
                         <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span></div>
                         <hr>
                         <h6 class="mb-0">Shopping cart</h6>
-                        <div class="d-flex justify-content-between"><span>You have 4 items in your cart</span>
+                        <div class="d-flex justify-content-between"><span>Here is your all products</span>
                             <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
                                 <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
                             </div>

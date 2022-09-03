@@ -17,9 +17,16 @@ class HomeController extends Controller
     // index
     public function index()
     {
+        // $usertype = Auth::user()->usertype;
+        // if ($usertype == '0')
+        // {
+        //     $totalcart = cart::all()->count();
+        //     return view('home.userpage', compact('totalcart'));
+        // }else{
        
         $product = product::paginate(6);
         return view('home.userpage', compact('product'));
+       
     
     }
 

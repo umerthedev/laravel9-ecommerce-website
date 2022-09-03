@@ -24,10 +24,14 @@
                            <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="{{url('show_cart')}}">cart </a>
+                           <a class="nav-link" href="{{url('show_cart')}}">cart 
+                              <span class="badge badge-pill bg-primary">0</span>
+                           </a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="{{url('show_order')}}">order</a>
+                           <a class="nav-link" href="{{url('show_order')}}">order
+                              <span class="badge badge-pill bg-success">0</span>                           
+                           </a>
                         </li>
                         <form class="form-inline">
                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
