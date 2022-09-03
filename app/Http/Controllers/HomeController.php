@@ -20,13 +20,14 @@ class HomeController extends Controller
         // $usertype = Auth::user()->usertype;
         // if ($usertype == '0')
         // {
-        //     $totalcart = cart::all()->count();
+        //     // $totalcart = cart::all()->count();
+        //        $totalcart = cart::where('user_id', $usertype)->count();
         //     return view('home.userpage', compact('totalcart'));
         // }else{
        
         $product = product::paginate(6);
         return view('home.userpage', compact('product'));
-       
+      
     
     }
 

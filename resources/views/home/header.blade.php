@@ -1,3 +1,6 @@
+
+
+
 <header class="header_section">
             <div class="container">
                <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -25,12 +28,12 @@
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('show_cart')}}">cart 
-                              <span class="badge badge-pill bg-primary">0</span>
+                              <span class="badge badge-pill bg-danger">4</span>
                            </a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('show_order')}}">order
-                              <span class="badge badge-pill bg-success">0</span>                           
+                              <span class="badge badge-pill bg-success">6</span>                           
                            </a>
                         </li>
                         <form class="form-inline">
